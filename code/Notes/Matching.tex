@@ -1,0 +1,42 @@
+\begin{itemize}[noitemsep]
+    \item \textbf{Game on a Graph}:  
+    A token starts at vertex $s$.  
+    Players alternately move the token to an adjacent vertex; if a player cannot move, they lose.\\
+    $\Leftrightarrow$ The second player wins if and only if there exists a maximum matching that does not include $s$.
+
+    \item \textbf{Chinese Postman Problem}:  
+    Find a minimum-weight walk that visits every edge at least once.\\
+    Run Floyd–Warshall to get all-pairs shortest paths, then collect all odd-degree vertices and find a minimum-weight perfect matching among them. (The number of odd vertices is always even.)
+
+    \item \textbf{Unweighted Edge Cover}:  
+    Find the smallest (minimum cardinality) set of edges that covers all vertices.\\
+    Result: $\vert V\vert - \vert M\vert$, where $M$ is a maximum matching.  
+    There are no paths of length 3; the structure consists of multiple star graphs.
+
+    \item \textbf{Weighted Edge Cover}:  
+    $\displaystyle \sum_{v \in V} w(v) - \sum_{(u,v) \in M} \big(w(u) + w(v) - d(u,v)\big)$,  
+    where $w(x)$ is the minimum weight of an edge incident to vertex $x$.
+
+    \item \textbf{NEERC'18 B}:  
+    Each machine requires two workers to operate.\\
+    For each machine, create two vertices and connect them with an edge;  
+    the answer is $\vert M\vert - \vert\text{machines}\vert$.  
+    It helps to think of each edge as contributing $1/2$ to the answer.
+
+    \item \textbf{Minimum Disjoint Cycle Cover}:  
+    Find a set of vertex-disjoint cycles (each of length $\ge 3$) covering all vertices.\\
+    Each vertex must be incident to exactly two different edges.  
+    While this might seem expressible as a flow, edges with capacity 2 can only carry 1 unit of flow — so a standard flow model fails.\\
+    Instead, duplicate every vertex and edge (e.g. $(v, v')$, $(e_{i,u}, e_{i,v})$).  
+    For each edge $e=(u,v)$, connect $e_u$ and $e_v$ with an edge of weight $w$ (similar to NEERC’18),  
+    and connect $(u,e_{i,u}), (u',e_{i,u}), (v,e_{i,v}), (v',e_{i,v})$ with zero-weight edges.  
+    A perfect matching exists $\Leftrightarrow$ a disjoint cycle cover exists.  
+    After finding a maximum-weight matching, subtract the total matching weight from the sum of all edge weights to get the result.
+
+    \item \textbf{Two Matching}:  
+    Find a maximum-weight matching where each vertex can be incident to at most two edges.\\
+    Each connected component must be either a single vertex, a path, or a cycle.  
+    Add zero-weight edges between every pair of distinct vertices and also add a zero-weight $(v,v')$ edge — this turns the problem into the Disjoint Cycle Cover problem.  
+    A component with a single vertex can be treated as having a self-loop;  
+    for path components, it helps to think of connecting the two endpoints.
+\end{itemize}

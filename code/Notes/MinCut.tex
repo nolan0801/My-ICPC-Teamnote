@@ -1,0 +1,26 @@
+\begin{itemize}[noitemsep]
+    \item A problem of minimizing cost by assigning $N$ boolean variables $v_1, \cdots, v_n$  
+    can be represented as a \textbf{minimum cut problem}, where  
+    nodes assigned \texttt{true} are connected to $T$, and those assigned \texttt{false} are connected to $F$.
+    \begin{enumerate}[noitemsep]
+        \item When $v_i$ is \texttt{true}, a cost occurs $\Rightarrow$ add an edge from $i$ to $F$ with that cost.
+        \item When $v_i$ is \texttt{false}, a cost occurs $\Rightarrow$ add an edge from $i$ to $T$ with that cost.
+        \item When $v_i$ is \texttt{true} and $v_j$ is \texttt{false}, a cost occurs $\Rightarrow$ add an edge from $i$ to $j$ with that cost.
+        \item When $v_i \ne v_j$, a cost occurs $\Rightarrow$ add edges both $i \to j$ and $j \to i$ with that cost.
+        \item If $v_i$ being \texttt{true} implies $v_j$ must also be \texttt{true}: add an infinite-capacity edge $i \to j$.
+        \item If $v_i$ being \texttt{false} implies $v_j$ must also be \texttt{false}: add an infinite-capacity edge $j \to i$.
+    \end{enumerate}
+    \item If you combine rules (5) and (6) with the constraint that $v_i$ and $v_j$ must differ, the problem becomes equivalent to \textbf{MAX-2SAT}.
+    \item \textbf{Maximum Density Subgraph} (NEERC'06H, BOJ 3611 “Team Difficulty”):
+    \begin{itemize}[noitemsep]
+        \item Use binary search on $x$ to check whether there exists a subgraph with density $\ge x$.
+        \item Given a graph with $N$ vertices, $M$ edges, and degrees $D_i$.
+        \item For each edge, add bidirectional edges with capacity $1$.
+        \item From the source to each vertex: add capacity $M$.  
+              From each vertex to the sink: add capacity $M - D_i + 2x$.
+        \item In the resulting min-cut, if there is at least one vertex connected to $S$,  
+              then a subgraph with density $\ge x$ exists — those vertices form that subgraph.
+        \item Use the condition \texttt{while (r - l $\ge$ 1.0 / (n * n))} to control precision;  
+              iterating too many times causes floating-point errors.
+    \end{itemize}
+\end{itemize}

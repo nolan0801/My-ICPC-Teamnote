@@ -1,0 +1,19 @@
+\begin{itemize}[noitemsep]
+
+    \item Simple undirected graph (Erdős–Gallai theorem):  
+    For a degree sequence $d_1 \geq \cdots \geq d_n$,  
+    the sum of all degrees is even **and** for all $1 \leq k \leq n$,  
+    $\sum_{i=1}^{k} d_i \leq k(k-1) + \sum_{i=k+1}^{n} \min(d_i, k)$.
+
+    \item Simple bipartite graph (Gale–Ryser theorem):  
+    For degree sequences $a_1 \geq \cdots \geq a_n$ and $b_i$,  
+    $\text{sum}(a) = \text{sum}(b)$ **and** for all $1 \leq k \leq n$,  
+    $\sum_{i=1}^{k} a_i \leq \sum_{i=1}^{n} \min(b_i, k)$.
+
+    \item Simple directed graph (Fulkerson–Chen–Anstee theorem):  
+    For in-degree/out-degree pairs $(a_1,b_1), \cdots, (a_n, b_n)$  
+    satisfying $a_1 \geq \cdots \geq a_n$,  
+    $\text{sum}(a) = \text{sum}(b)$ **and** for all $1 \leq k \leq n$,  
+    $\sum_{i=1}^{k} a_i \leq \sum_{i=1}^{k} \min(b_i, k-1) + \sum_{i=k+1}^{n} \min(b_i, k)$.
+
+\end{itemize}

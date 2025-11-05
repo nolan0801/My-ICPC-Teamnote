@@ -1,0 +1,36 @@
+\begin{itemize}[noitemsep]
+    \item Implicit differentiation: Differentiate both sides of $f(x, y) = 0$ with respect to $x$, then solve for $dy/dx$.
+    \item (Example) $\frac{d}{dx}(x^3) + \frac{d}{dx}(y^3) - 3\frac{d}{dx}(xy) = 3x^2 + 3y^2\frac{dy}{dx} - 3(y + x\frac{dy}{dx}) = 0$
+    \item Derivative of the inverse function: $(f^{-1})'(x) = 1 / f'(f^{-1}(x))$
+    \item Newton–Raphson method: $x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
+    \item Substitution in integration: Let $x = g(t)$, then $\int f(x)\,dx = \int f(g(t)) g'(t)\,dt$
+    \item (Example) In $\int \frac{f'(x)}{f(x)}dx$, let $t = f(x)$, so $f'(x) = dt/dx$.\\
+    Therefore, $\int \frac{f'(x)}{f(x)}dx = \int \frac{1}{t}\,dt = \ln|t| + C = \ln|f(x)| + C$
+    \item Trigonometric substitution:  
+    For $\sqrt{a^2 - x^2}$, let $x = a\sin t$;  
+    For $\sqrt{a^2 + x^2}$, let $x = a\tan t$;  
+    Be careful with the range of $t$.
+    \item Volume of a solid: If the cross-sectional area function $A(x)$ is continuous on $[a, b]$, then the volume is $\int_a^b A(x)\,dx$.
+    \item (Disk method): If a continuous function $f(x)$ on $[a, b]$ satisfies $f(x) \ge 0$, the volume of the solid obtained by rotating the region bounded by $f(x)$, $x=a$, $x=b$, and the $x$-axis about the $y$-axis is $\int_a^b 2\pi x f(x)\,dx$.
+    \item Arc length: If $f'(x)$ is continuous on $[a, b]$, the arc length from $x=a$ to $x=b$ is $\int_a^b \sqrt{1 + [f'(x)]^2}\,dx$.
+    \item Surface area of revolution: When the curve is rotated about the $x$-axis, the surface area is $\int_a^b 2\pi f(x)\sqrt{1 + [f'(x)]^2}\,dx$.
+    \item Green’s theorem: $\oint_C (L\,dx + M\,dy) = \iint_D \left(\frac{\partial M}{\partial x} - \frac{\partial L}{\partial y}\right) dx\,dy$
+    \item where $C$ is positively oriented, piecewise smooth, simple, and closed; $D$ is the region enclosed by $C$; $L$ and $M$ have continuous partial derivatives on $D$.
+\end{itemize}
+
+\begin{tabular}{|l|l|l|}
+\hline
+    $f(x)$ & $f'(x)$ & $\displaystyle \int f(x)\,dx$ \\ \hline
+    $\sin x$ & $\cos x$ & $-\cos x$ \\ \hline
+    $\cos x$ & $-\sin x$ & $\sin x$ \\ \hline
+    $\tan x$ & $\sec^2 x = 1 + \tan^2 x$ & $-\ln|\cos x|$ \\ \hline
+    $\csc x$ & $-\csc x \cot x$ & $\ln|\tan(x/2)|$ \\ \hline
+    $\sec x$ & $\sec x \tan x$ & $\ln|\tan(x/2 + \pi/4)|$ \\ \hline
+    $\cot x$ & $-\csc^2 x$ & $\ln|\sin x|$ \\ \hline
+    $\arcsin x$ & $\frac{1}{\sqrt{1 - x^2}}$ & $x\arcsin x + \sqrt{1 - x^2}$ \\ \hline
+    $\arccos x$ & $-\frac{1}{\sqrt{1 - x^2}}$ & $x\arccos x - \sqrt{1 - x^2}$ \\ \hline
+    $\arctan x$ & $\frac{1}{1 + x^2}$ & $x\arctan x - \frac{\ln(x^2 + 1)}{2}$ \\ \hline
+    $\csc^{-1} x$ & $-\frac{1}{x\sqrt{x^2 - 1}}$ & $x\csc^{-1} x + \cosh^{-1}|x|$ \\ \hline
+    $\sec^{-1} x$ & $\frac{1}{x\sqrt{x^2 - 1}}$ & $x\sec^{-1} x - \cosh^{-1}|x|$ \\ \hline
+    $\cot^{-1} x$ & $-\frac{1}{1 + x^2}$ & $x\cot^{-1} x + \frac{\ln(x^2 + 1)}{2}$ \\ \hline
+\end{tabular}
